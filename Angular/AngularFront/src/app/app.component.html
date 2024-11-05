@@ -1,0 +1,74 @@
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <i class="bi bi-book me-2"></i>
+      Sistema Escolar
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <!-- Cursos -->
+        <li class="nav-item">
+          <button class="nav-link d-flex align-items-center" (click)="toggleDropdown('cursos')" [attr.aria-expanded]="activeDropdown === 'cursos'">
+            <i class="bi bi-journal-text me-1"></i>
+            Cursos 
+            <i class="bi bi-chevron-down ms-1"></i>
+          </button>
+          <ul class="dropdown shadow-sm" *ngIf="activeDropdown === 'cursos'">
+            <li><a routerLink="/cursos" (click)="closeMenus()">Ver Cursos</a></li>
+            <li><a routerLink="/cursos/add" (click)="closeMenus()">Agregar Curso</a></li>
+            <li><a routerLink="/cursos/search" (click)="closeMenus()">Buscar Cursos</a></li>
+          </ul>
+        </li>
+
+        <!-- Alumnos -->
+        <li class="nav-item">
+          <button class="nav-link d-flex align-items-center" (click)="toggleDropdown('alumnos')" [attr.aria-expanded]="activeDropdown === 'alumnos'">
+            <i class="bi bi-people me-1"></i>
+            Alumnos
+            <i class="bi bi-chevron-down ms-1"></i>
+          </button>
+          <ul class="dropdown shadow-sm" *ngIf="activeDropdown === 'alumnos'">
+            <li><a routerLink="/alumnos" (click)="closeMenus()">Ver Alumnos</a></li>
+            <li><a routerLink="/alumnos/add" (click)="closeMenus()">Agregar Alumno</a></li>
+            <li><a routerLink="/alumnos/search-by-docente" (click)="closeMenus()">Buscar Alumnos por Docente</a></li>
+          </ul>
+        </li>
+
+        <!-- Docentes -->
+        <li class="nav-item">
+          <button class="nav-link d-flex align-items-center" (click)="toggleDropdown('docentes')" [attr.aria-expanded]="activeDropdown === 'docentes'">
+            <i class="bi bi-person-badge me-1"></i>
+            Docentes
+            <i class="bi bi-chevron-down ms-1"></i>
+          </button>
+          <ul class="dropdown shadow-sm" *ngIf="activeDropdown === 'docentes'">
+            <li><a routerLink="/docentes" (click)="closeMenus()">Ver Docentes</a></li>
+            <li><a routerLink="/docentes/add" (click)="closeMenus()">Agregar Docente</a></li>
+          </ul>
+        </li>
+
+        <!-- Temas -->
+        <li class="nav-item">
+          <button class="nav-link d-flex align-items-center" (click)="toggleDropdown('temas')" [attr.aria-expanded]="activeDropdown === 'temas'">
+            <i class="bi bi-bookmark me-1"></i>
+            Temas
+            <i class="bi bi-chevron-down ms-1"></i>
+          </button>
+          <ul class="dropdown shadow-sm" *ngIf="activeDropdown === 'temas'">
+            <li><a routerLink="/temas" (click)="closeMenus()">Ver Temas</a></li>
+            <li><a routerLink="/temas/add" (click)="closeMenus()">Agregar Tema</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Contenedor principal para las rutas -->
+<main class="container py-4">
+  <router-outlet></router-outlet>
+</main>
